@@ -21,19 +21,32 @@ class AdminController extends Controller
     /**
      * Show the admin dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function index()
     {
-        return view('admin.home');
+        $posts = Post::paginate(6);
+        return ['posts' => $posts];
+    }
+
+    /**
+     * Show the admin dashboard.
+     * @param int $id
+     *
+     * @return array
+     */
+    public function read($id)
+    {
+        $post = Post::findOrFail($id);
+        return ['post' => $post];
     }
 
     /**
      * Creates a post
      *
-     * @param Request $request
+     * @param \Illuminate\Http\Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function createPost(Request $request)
     {
@@ -43,18 +56,24 @@ class AdminController extends Controller
             'tags' => 'string|max:255|nullable',
             'rating' => 'integer|nullable'
         ]);
-        $post = new Post();
-        return view('admin.home');
+        $post = new Post([
+            'title' => $validatedData['title'],
+            'body' => $validatedData['body'],
+            'tags' => $validatedData['tags'],
+            'rating' => $validatedData['rating'],
+        ]);
+        $post->save();
+        return ['post' => $post];
     }
 
 
     /**
      * Updates the post with id.
      *
-     * @param Request $request
-     * @param int @id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
     public function updatePost(Request $request, $id)
     {
@@ -64,20 +83,32 @@ class AdminController extends Controller
             'tags' => 'string|max:255|nullable',
             'rating' => 'integer|nullable'
         ]);
-
-        return view('admin.home');
+        $post = Post::findOrFail($id);
+        $post->update([
+            'title' => $validatedData['title'],
+            'body' => $validatedData['body'],
+            'tags' => $validatedData['tags'],
+            'rating' => $validatedData['rating'],
+        ]);
+        $post->save();
+        return ['post' => $post];
     }
 
     /**
      * Deletes the post with id.
      *
      * @param int $id
+     * @throws
      *
      * @return \Illuminate\Http\Response
      */
     public function deletePost($id)
     {
-
-        return view('admin.home');
+        $post = Post::findOrFail($id);
+        $title = $post->title;
+        $post->delete();
+        return response()->json([
+            'message' => 'Post: ' . $title . ', was deleted.',
+        ]);
     }
 }
