@@ -13,9 +13,9 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 255)->unique();
+            $table->string('title', 255);
             $table->longText('body');
             $table->string('tags',255)->nullable();
             $table->integer('rating')->nullable();
@@ -30,8 +30,8 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->drop();
+        Schema::drop('posts', function (Blueprint $table) {
+
         });
     }
 }

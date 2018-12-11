@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
+
 
 class AdminController extends Controller
 {
@@ -35,7 +37,14 @@ class AdminController extends Controller
      */
     public function createPost(Request $request)
     {
-
+        $validatedData = $request->validate([
+            'title' => 'required|string|unique:posts|max:255',
+            'body' => 'required|string',
+            'tags' => 'string|max:255|nullable',
+            'rating' => 'integer|nullable'
+        ]);
+        $post = new Post();
+        return view('admin.home');
     }
 
 
@@ -49,7 +58,14 @@ class AdminController extends Controller
      */
     public function updatePost(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'title' => 'required|string|unique:posts|max:255',
+            'body' => 'required|string',
+            'tags' => 'string|max:255|nullable',
+            'rating' => 'integer|nullable'
+        ]);
 
+        return view('admin.home');
     }
 
     /**
@@ -62,5 +78,6 @@ class AdminController extends Controller
     public function deletePost($id)
     {
 
+        return view('admin.home');
     }
 }

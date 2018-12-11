@@ -21,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::prefix('/admin')->middleware(['auth'])->group(function(){
+    Route::get('/', [AdminController::class, 'index']);
     Route::get('/home', [AdminController::class, 'index'])->name('home');
     Route::post('/create', [AdminController::class, 'createPost'])->name('create');
     Route::put('/update/{id}', [AdminController::class, 'updatePost'])->name('update');
