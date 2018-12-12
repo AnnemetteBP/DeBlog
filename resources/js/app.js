@@ -16,10 +16,10 @@ Vue.use(Vuetify);
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ * Eg. ./components/AdminIndexComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('admin-index-component', require('./components/AdminIndexComponent.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -32,4 +32,32 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 const app = new Vue({
     el: '#app'
+});
+
+const adminApp = new Vue({
+    el: '#admin-app',
+    data: {
+        posts: [
+            {
+                id: 1,
+                title: 'Title',
+                body: 'The body',
+                rating: 5,
+                tags: 'The tags',
+            }
+        ],
+    },
+    methods: {
+        getIndex: function() {
+            let posts = '';
+            window.axios.get('/admin/index')
+                .then(function (response) {
+                    posts = response.data.posts.data;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            return posts;
+        },
+    },
 });
