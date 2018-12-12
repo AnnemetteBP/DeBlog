@@ -17,6 +17,10 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
+    //Returns home view
+    public function home() {
+        return view('admin.home');
+    }
 
     /**
      * Show the admin dashboard.
