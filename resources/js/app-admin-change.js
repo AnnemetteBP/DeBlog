@@ -18,9 +18,7 @@ Vue.prototype.$http = window.axios;
  *
  * Eg. ./components/AdminIndexComponent.vue -> <example-component></example-component>
  */
-Vue.component('pagination', require('laravel-vue-pagination'));
-Vue.component('admin-index-component', require('./components/AdminIndexComponent.vue'));
-Vue.component('admin-read-component', require('./components/AdminReadComponent.vue'));
+Vue.component('admin-change-component', require('./components/AdminChangeComponent.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -31,41 +29,31 @@ Vue.component('admin-read-component', require('./components/AdminReadComponent.v
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#admin-index-app',
+const adminChangeApp = new Vue({
+    el: '#admin-change-app',
     data: {
         adminUrl: '/admin',
-        title: 'Admin Index-Component',
-        postsData: {},
-        posts: [
-            {
-                id: 1,
-                title: 'Learn JavaScript' ,
-                body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
-                rating: 5,
-                tags: 'fast, juicy',
-            },
-            {
-                id: 2,
-                title: 'Learn JavaScript' ,
-                body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
-                rating: 5,
-                tags: 'fast, juicy',
-            },
-        ],
+        title: 'Admin Change-Component',
+        post: {
+            id: 1,
+            title: 'Learn JavaScript' ,
+            body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
+            rating: 5,
+            tags: 'fast, juicy',
+        },
     },
     mounted() {
         // Fetch initial results
-        this.getResults();
+        this.getResults($('#page').attr('class'));
     },
     methods: {
         // Our method to GET results from a Laravel endpoint
         getResults(page = 1) {
             let vm = this;
-            axios.get(this.adminUrl + '/index?page=' + page)
+            axios.get(this.adminUrl + '/read/' + page)
                 .then(function(response) {
-                    vm.postsData = response.data.posts;
-                    vm.posts = response.data.posts.data;
+                    console.log(response);
+                    vm.post = response.data.post;
                 });
         }
     }

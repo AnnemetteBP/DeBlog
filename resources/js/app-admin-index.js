@@ -20,7 +20,6 @@ Vue.prototype.$http = window.axios;
  */
 Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('admin-index-component', require('./components/AdminIndexComponent.vue'));
-Vue.component('admin-read-component', require('./components/AdminReadComponent.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -31,7 +30,7 @@ Vue.component('admin-read-component', require('./components/AdminReadComponent.v
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+const adminApp = new Vue({
     el: '#admin-index-app',
     data: {
         adminUrl: '/admin',

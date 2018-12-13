@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 
 class AdminController extends Controller
@@ -34,7 +35,6 @@ class AdminController extends Controller
     }
 
     /**
-     * Show the admin dashboard.
      * @param int $id
      *
      * @return array
@@ -43,6 +43,22 @@ class AdminController extends Controller
     {
         $post = Post::findOrFail($id);
         return ['post' => $post];
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return Response
+     */
+    public function show($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('admin.read', ['post' => $post]);
+    }
+
+    public function write()
+    {
+        return view('admin.write');
     }
 
     /**
@@ -67,7 +83,7 @@ class AdminController extends Controller
             'rating' => $validatedData['rating'],
         ]);
         $post->save();
-        return ['post' => $post];
+        return view('admin.read', ['post' => $post]);
     }
 
 
@@ -95,7 +111,18 @@ class AdminController extends Controller
             'rating' => $validatedData['rating'],
         ]);
         $post->save();
-        return ['post' => $post];
+        return view('admin.read', ['post' => $post]);
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return Response
+     */
+    public function change($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('admin.change', ['post' => $post]);
     }
 
     /**
@@ -111,8 +138,6 @@ class AdminController extends Controller
         $post = Post::findOrFail($id);
         $title = $post->title;
         $post->delete();
-        return response()->json([
-            'message' => 'Post: ' . $title . ', was deleted.',
-        ]);
+        return route('home');
     }
 }

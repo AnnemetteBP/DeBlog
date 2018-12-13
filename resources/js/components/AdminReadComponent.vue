@@ -8,7 +8,8 @@
                 <p>
                     {{ post.body }}
                 </p>
-                <a v-bind:href=" adminurl + '/show/' + post.id">read</a>
+                <a v-bind:href=" adminurl ">back</a>
+                <a v-bind:href=" adminurl + '/change/' + post.id ">change</a>
             </li>
         </ul>
     </div>
@@ -16,7 +17,11 @@
 
 <script>
     export default {
-        name: "AdminIndexComponent",
+        name: "AdminReadComponent",
         props: ['post', 'adminurl'],
     }
 </script>
+
+<style scoped>
+
+</style>
