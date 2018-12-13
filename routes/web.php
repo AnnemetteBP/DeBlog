@@ -21,7 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::prefix('/admin')->middleware(['auth'])->group(function(){
-    Route::get('/', [AdminController::class, 'home']);
+    Route::get('/', [AdminController::class, 'home'])->name('home');
     Route::get('/index', [AdminController::class, 'index'])->name('index');
     Route::get('/read/{id}', [AdminController::class, 'read'])->name('read');
     Route::get('/show/{id}', [AdminController::class, 'show'])->name('show');

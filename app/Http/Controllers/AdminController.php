@@ -138,6 +138,6 @@ class AdminController extends Controller
         $post = Post::findOrFail($id);
         $title = $post->title;
         $post->delete();
-        return route('home');
+        return redirect()->route('home');
     }
 }

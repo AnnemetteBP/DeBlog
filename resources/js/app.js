@@ -32,41 +32,5 @@ Vue.component('admin-read-component', require('./components/AdminReadComponent.v
  */
 
 const app = new Vue({
-    el: '#admin-index-app',
-    data: {
-        adminUrl: '/admin',
-        title: 'Admin Index-Component',
-        postsData: {},
-        posts: [
-            {
-                id: 1,
-                title: 'Learn JavaScript' ,
-                body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
-                rating: 5,
-                tags: 'fast, juicy',
-            },
-            {
-                id: 2,
-                title: 'Learn JavaScript' ,
-                body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
-                rating: 5,
-                tags: 'fast, juicy',
-            },
-        ],
-    },
-    mounted() {
-        // Fetch initial results
-        this.getResults();
-    },
-    methods: {
-        // Our method to GET results from a Laravel endpoint
-        getResults(page = 1) {
-            let vm = this;
-            axios.get(this.adminUrl + '/index?page=' + page)
-                .then(function(response) {
-                    vm.postsData = response.data.posts;
-                    vm.posts = response.data.posts.data;
-                });
-        }
-    }
+    el: '#app',
 });

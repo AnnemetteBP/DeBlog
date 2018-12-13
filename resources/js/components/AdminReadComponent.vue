@@ -12,6 +12,11 @@
                 <a v-bind:href=" adminurl + '/change/' + post.id ">change</a>
             </li>
         </ul>
+        <form :action=" adminurl + '/delete/' + post.id " method="POST">
+            <input type="hidden" name="_token" :value="csrf">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Remove" class="btn btn-danger-outlined">
+        </form>
     </div>
 </template>
 
@@ -19,6 +24,11 @@
     export default {
         name: "AdminReadComponent",
         props: ['post', 'adminurl'],
+        data() {
+            return {
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        },
     }
 </script>
 

@@ -72136,7 +72136,7 @@ exports = module.exports = __webpack_require__(39)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -72164,10 +72164,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "AdminReadComponent",
-    props: ['post', 'adminurl']
+    props: ['post', 'adminurl'],
+    data: function data() {
+        return {
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        };
+    }
 });
 
 /***/ }),
@@ -72199,7 +72209,32 @@ var render = function() {
           _vm._v("change")
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        attrs: {
+          action: _vm.adminurl + "/delete/" + _vm.post.id,
+          method: "POST"
+        }
+      },
+      [
+        _c("input", {
+          attrs: { type: "hidden", name: "_token" },
+          domProps: { value: _vm.csrf }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "hidden", name: "_method", value: "DELETE" }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "btn btn-danger-outlined",
+          attrs: { type: "submit", value: "Remove" }
+        })
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -72258,42 +72293,7 @@ Vue.component('admin-read-component', __webpack_require__(46));
  */
 
 var app = new Vue({
-    el: '#admin-index-app',
-    data: {
-        adminUrl: '/admin',
-        title: 'Admin Index-Component',
-        postsData: {},
-        posts: [{
-            id: 1,
-            title: 'Learn JavaScript',
-            body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
-            rating: 5,
-            tags: 'fast, juicy'
-        }, {
-            id: 2,
-            title: 'Learn JavaScript',
-            body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
-            rating: 5,
-            tags: 'fast, juicy'
-        }]
-    },
-    mounted: function mounted() {
-        // Fetch initial results
-        this.getResults();
-    },
-
-    methods: {
-        // Our method to GET results from a Laravel endpoint
-        getResults: function getResults() {
-            var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-
-            var vm = this;
-            axios.get(this.adminUrl + '/index?page=' + page).then(function (response) {
-                vm.postsData = response.data.posts;
-                vm.posts = response.data.posts.data;
-            });
-        }
-    }
+  el: '#app'
 });
 
 /***/ }),
