@@ -10,13 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\AdminController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FrontController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', [FrontController::class, 'welcome']);
+Route::get('/index', [FrontController::class, 'index']);
+Route::get('/read/{id}', [FrontController::class, 'read']);
+Route::get('/show/{id}', [FrontController::class, 'show']);
 
 Auth::routes();
 
