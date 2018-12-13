@@ -60,7 +60,8 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+    /******/
+    return __webpack_require__(__webpack_require__.s = 46);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71700,6 +71701,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
             name: "IndexComponent",
@@ -71714,25 +71743,118 @@ var render = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-  return _c("div", [
-    _c("ul", [
-      _c("li", [
-        _c("h2", [_vm._v(_vm._s(_vm.post.title))]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.post.rating))]),
-        _vm._v(" "),
-        _c("i", [_vm._v(_vm._s(_vm.post.tags))]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "\n                " + _vm._s(_vm.post.body) + "\n            "
-          )
-        ]),
-        _vm._v(" "),
-          _c("a", {attrs: {href: "/read/" + _vm.post.id}}, [_vm._v("read")])
-      ])
-    ])
-  ])
+    return _c(
+        "div",
+        [
+            _c("v-divider", {attrs: {dark: ""}}),
+            _vm._v(" "),
+            _c(
+                "v-layout",
+                [
+                    _c(
+                        "v-flex",
+                        {attrs: {xs12: "", sm6: "", "offset-sm3": ""}},
+                        [
+                            _c(
+                                "v-card",
+                                {attrs: {raised: "", dark: ""}},
+                                [
+                                    _c(
+                                        "v-img",
+                                        {
+                                            attrs: {
+                                                src:
+                                                    "https://cdn.vuetifyjs.com/images/cards/desert.jpg",
+                                                "aspect-ratio": "2.75"
+                                            }
+                                        },
+                                        [
+                                            _c(
+                                                "v-container",
+                                                {attrs: {"fill-height": "", fluid: ""}},
+                                                [
+                                                    _c(
+                                                        "v-layout",
+                                                        {attrs: {"fill-height": ""}},
+                                                        [
+                                                            _c(
+                                                                "v-flex",
+                                                                {
+                                                                    attrs: {
+                                                                        xs12: "",
+                                                                        "align-end": "",
+                                                                        flexbox: ""
+                                                                    }
+                                                                },
+                                                                [
+                                                                    _c("span", {staticClass: "headline"}, [
+                                                                        _c("h3", {staticClass: "headline mb-0"}, [
+                                                                            _vm._v(_vm._s(_vm.post.title))
+                                                                        ])
+                                                                    ])
+                                                                ]
+                                                            )
+                                                        ],
+                                                        1
+                                                    )
+                                                ],
+                                                1
+                                            )
+                                        ],
+                                        1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-card-title", {attrs: {"primary-title": ""}}, [
+                                        _c("div", [
+                                            _c("div", [
+                                                _c("p", [
+                                                    _vm._v("Tags: "),
+                                                    _c("i", [_vm._v(_vm._s(_vm.post.tags))])
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("p", [
+                                                    _vm._v("Rating: "),
+                                                    _c("b", [_vm._v(_vm._s(_vm.post.rating))])
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("p", [_vm._v(_vm._s(_vm.post.body))])
+                                            ])
+                                        ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                        "v-card-actions",
+                                        [
+                                            _c(
+                                                "v-btn",
+                                                {
+                                                    attrs: {
+                                                        href: "/read/" + _vm.post.id,
+                                                        dark: "",
+                                                        ripple: "",
+                                                        outline: "",
+                                                        color: "green"
+                                                    }
+                                                },
+                                                [_vm._v("Read")]
+                                            )
+                                        ],
+                                        1
+                                    )
+                                ],
+                                1
+                            )
+                        ],
+                        1
+                    )
+                ],
+                1
+            ),
+            _vm._v(" "),
+            _c("v-divider", {attrs: {dark: ""}})
+        ],
+        1
+    )
 };
         var staticRenderFns = [];
         render._withStripped = true;
@@ -71745,20 +71867,15 @@ if (false) {
 }
 
 /***/ }),
-    /* 46 */,
-    /* 47 */,
-    /* 48 */,
-    /* 49 */,
-    /* 50 */,
-/* 51 */
+    /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(52);
-module.exports = __webpack_require__(53);
+        __webpack_require__(47);
+        module.exports = __webpack_require__(48);
 
 
 /***/ }),
-/* 52 */
+    /* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -71831,7 +71948,7 @@ var app = new Vue({
 });
 
 /***/ }),
-/* 53 */
+    /* 48 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

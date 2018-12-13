@@ -1,9 +1,9 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-  "/js/read-app.js": "/js/read-app.js",
+    "/js/read-app.js": "/js/read-app.js",
     "/js/app-admin-write.js": "/js/app-admin-write.js",
     "/js/app-admin-read.js": "/js/app-admin-read.js",
     "/js/app-admin-change.js": "/js/app-admin-change.js",
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/js/app-admin-index.js": "/js/app-admin-index.js"
 }
