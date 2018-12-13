@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="admin-index-app">
-        <a :href="adminUrl + '/write'">New post</a>
+        <v-btn href=" {{ url('/admin/write')}} " color="green" dark ripple outline left>New post</v-btn>
         <admin-index-component
                 v-for="post in posts"
             v-bind:post="post"
