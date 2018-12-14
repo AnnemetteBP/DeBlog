@@ -5,7 +5,7 @@
             <v-flex xs12 sm6 offset-sm3>
                 <v-card raised dark>
                     <v-img
-                            src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+                            v-bind:src=" post.picture "
                             aspect-ratio="2.75"
                     >
 
@@ -38,6 +38,8 @@
                                           placeholder="rating"></v-text-field>
                             <v-text-field type="text" name="tags" :value="post.tags" placeholder="tags"></v-text-field>
                             <v-text-field type="text" name="body" :value="post.body" placeholder="body"></v-text-field>
+                            <v-text-field type="text" name="picture" :value="post.picture"
+                                          placeholder="picture-url"></v-text-field>
                             <v-btn block type="submit" form="write-form" dark outline color="yellow">Change</v-btn>
                         </v-form>
                     </div>

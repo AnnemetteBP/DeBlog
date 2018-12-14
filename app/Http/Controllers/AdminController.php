@@ -74,6 +74,7 @@ class AdminController extends Controller
             'title' => 'required|string|unique:posts|max:255',
             'body' => 'required|string',
             'tags' => 'string|max:255|nullable',
+            'picture' => 'string|nullable',
             'rating' => 'integer|nullable'
         ]);
         $post = new Post([
@@ -81,6 +82,7 @@ class AdminController extends Controller
             'body' => $validatedData['body'],
             'tags' => $validatedData['tags'],
             'rating' => $validatedData['rating'],
+            'picture' => $validatedData['picture'],
         ]);
         $post->save();
         return view('admin.read', ['post' => $post]);
@@ -101,6 +103,7 @@ class AdminController extends Controller
             'title' => 'required|string|unique:posts|max:255',
             'body' => 'required|string',
             'tags' => 'string|max:255|nullable',
+            'picture' => 'url|max:255|nullable',
             'rating' => 'integer|nullable'
         ]);
         $post = Post::findOrFail($id);
@@ -109,6 +112,7 @@ class AdminController extends Controller
             'body' => $validatedData['body'],
             'tags' => $validatedData['tags'],
             'rating' => $validatedData['rating'],
+            'picture' => $validatedData['picture'],
         ]);
         $post->save();
         return view('admin.read', ['post' => $post]);

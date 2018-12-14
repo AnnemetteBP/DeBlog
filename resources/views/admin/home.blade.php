@@ -16,7 +16,14 @@
             v-bind:adminurl="adminUrl">
 
         </admin-index-component>
-        <pagination :data="postsData" @pagination-change-page="getResults"></pagination>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-2 mx-auto">
+                    <pagination :data="postsData" @pagination-change-page="getResults"></pagination>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="{{ asset('js/app-admin-index.js') }}" defer></script>
 @endsection

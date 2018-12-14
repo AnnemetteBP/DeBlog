@@ -71762,11 +71762,7 @@ var render = function() {
                                     _c(
                                         "v-img",
                                         {
-                                            attrs: {
-                                                src:
-                                                    "https://cdn.vuetifyjs.com/images/cards/desert.jpg",
-                                                "aspect-ratio": "2.75"
-                                            }
+                                            attrs: {src: _vm.post.picture, "aspect-ratio": "2.75"}
                                         },
                                         [
                                             _c(
@@ -71919,13 +71915,15 @@ var app = new Vue({
             title: 'Learn JavaScript',
             body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
             rating: 5,
-            tags: 'fast, juicy'
+            tags: 'fast, juicy',
+            picture: 'https://cdn.vuetifyjs.com/images/cards/desert.jpg'
         }, {
             id: 2,
             title: 'Learn JavaScript',
             body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
             rating: 5,
-            tags: 'fast, juicy'
+            tags: 'fast, juicy',
+            picture: 'https://cdn.vuetifyjs.com/images/cards/desert.jpg'
         }]
     },
     mounted: function mounted() {

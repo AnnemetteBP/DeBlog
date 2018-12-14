@@ -43,6 +43,7 @@ const adminApp = new Vue({
                 body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
                 rating: 5,
                 tags: 'fast, juicy',
+                picture: 'https://cdn.vuetifyjs.com/images/cards/desert.jpg',
             },
             {
                 id: 2,
@@ -50,6 +51,7 @@ const adminApp = new Vue({
                 body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
                 rating: 5,
                 tags: 'fast, juicy',
+                picture: 'https://cdn.vuetifyjs.com/images/cards/desert.jpg',
             },
         ],
     },

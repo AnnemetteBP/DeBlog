@@ -5,7 +5,7 @@
             <v-flex xs12 sm6 offset-sm3>
                 <v-card raised dark>
                     <v-img
-                            src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+                            v-bind:src=" post.picture "
                             aspect-ratio="2.75"
                     >
 

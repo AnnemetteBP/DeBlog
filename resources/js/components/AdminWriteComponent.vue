@@ -4,22 +4,15 @@
         <v-layout>
             <v-flex xs12 sm6 offset-sm3>
                 <v-card raised dark>
-                    <v-img
-                            src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
-                            aspect-ratio="2.75"
-                    >
-
-                        <v-container fill-height fluid>
-                            <v-layout fill-height>
-                                <v-flex xs12 align-end flexbox>
+                    <v-container fill-height fluid>
+                        <v-layout fill-height>
+                            <v-flex xs12 align-end flexbox>
                                     <span class="headline">
                                         <h3 class="headline mb-0">Write new post</h3>
                                     </span>
-                                </v-flex>
-                            </v-layout>
-                        </v-container>
-
-                    </v-img>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
 
                     <v-card-title primary-title>
                         <div>
@@ -35,6 +28,7 @@
                             <v-text-field type="text" name="rating" placeholder="rating"></v-text-field>
                             <v-text-field type="text" name="tags" placeholder="tags"></v-text-field>
                             <v-text-field type="text" name="body" placeholder="body"></v-text-field>
+                            <v-text-field type="text" name="picture" placeholder="picture-url"></v-text-field>
                             <v-btn block type="submit" form="write-form" dark outline color="green">Write</v-btn>
                         </v-form>
                     </div>

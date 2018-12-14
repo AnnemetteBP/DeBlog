@@ -18,6 +18,7 @@ class Post extends Model
         'title',
         'body',
         'tags',
-        'rating'
+        'rating',
+        'picture'
     ];
 }
