@@ -13,15 +13,6 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
-Route::get('/list', [FrontController::class, 'index']);
-Route::get('/show/{id}', [FrontController::class, 'show']);
-Route::get('/{any}', [FrontController::class, 'any'])->where('any', '.*');
-
-//Route::get('/read/{id}', [FrontController::class, 'read']);
-//Route::get('/', [FrontController::class, 'welcome']);
 
 Auth::routes();
 
@@ -36,3 +27,11 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
     Route::get('/change/{id}', [AdminController::class, 'change'])->name('change');
     Route::delete('/delete/{id}', [AdminController::class, 'deletePost'])->name('delete');
 });
+
+Route::get('/list', [FrontController::class, 'index']);
+Route::get('/show/{id}', [FrontController::class, 'show']);
+Route::get('/{any}', [FrontController::class, 'any'])->where('any', '.*');
+
+//Route::get('/read/{id}', [FrontController::class, 'read']);
+//Route::get('/', [FrontController::class, 'welcome']);
+
