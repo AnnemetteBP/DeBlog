@@ -2,7 +2,13 @@
 
 @section('content')
     <div id="admin-index-app">
-        <v-btn href=" {{ url('/admin/write')}} " color="green" dark ripple outline left>New post</v-btn>
+        <v-toolbar dark>
+            <v-toolbar-title>De Blog Admin</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+                <v-btn href=" {{ url('/admin/write')}} " color="green" dark ripple outline left>New post</v-btn>
+            </v-toolbar-items>
+        </v-toolbar>
         <admin-index-component
                 v-for="post in posts"
             v-bind:post="post"
