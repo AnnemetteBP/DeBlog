@@ -31,7 +31,8 @@ Vue.component('index-component', require('./components/IndexComponent.vue'));
  */
 
 const app = new Vue({
-    el: '#app', data: {
+    el: '#app',
+    data: {
         title: 'Index-Component',
         postsData: {},
         posts: [

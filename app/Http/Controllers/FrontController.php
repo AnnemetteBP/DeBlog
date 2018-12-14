@@ -6,14 +6,8 @@ use App\Models\Post;
 
 class FrontController extends Controller
 {
-    public function welcome()
-    {
-        return view('welcome');
-    }
-
-    public function read($id)
-    {
-        return view('post', ['post' => Post::findOrFail($id)]);
+    public function any(){
+        return view('public');
     }
 
     public function index()

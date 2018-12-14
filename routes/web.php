@@ -16,10 +16,12 @@ use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [FrontController::class, 'welcome']);
-Route::get('/index', [FrontController::class, 'index']);
-Route::get('/read/{id}', [FrontController::class, 'read']);
+Route::get('/list', [FrontController::class, 'index']);
 Route::get('/show/{id}', [FrontController::class, 'show']);
+Route::get('/{any}', [FrontController::class, 'any'])->where('any', '.*');
+
+//Route::get('/read/{id}', [FrontController::class, 'read']);
+//Route::get('/', [FrontController::class, 'welcome']);
 
 Auth::routes();
 

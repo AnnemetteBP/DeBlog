@@ -33,7 +33,7 @@
                     </v-card-title>
 
                     <v-card-actions>
-                        <v-btn v-bind:href=" '/' " dark ripple outline color="green">Back</v-btn>
+                        <v-btn v-on:click="home($event)" dark ripple outline color="green">Back</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-flex>
@@ -45,12 +45,38 @@
 <script>
     export default {
         name: "ReadComponent",
-        props: ['post'],
         data() {
             return {
-                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                title: 'Admin Read-Component',
+                post: {
+                    id: 1,
+                    title: 'Learn JavaScript',
+                    body: 'The ultimate diet for the overweight programmer, who needs depression, stress and complete utter fustration ruling their lives.',
+                    rating: 5,
+                    tags: 'fast, juicy',
+                    picture: 'https://cdn.vuetifyjs.com/images/cards/desert.jpg',
+                },
             }
         },
+        mounted() {
+            // Fetch initial results
+            this.getResults(this.$route.params.id);
+        },
+        methods: {
+            // Our method to GET results from a Laravel endpoint
+            getResults(page = 1) {
+                let vm = this;
+                axios.get('/show/' + page)
+                    .then(function (response) {
+                        console.log(response);
+                        vm.post = response.data.post;
+                    });
+            },
+            home(event){
+                this.$router.push('/');
+            }
+        }
     }
 </script>
 
